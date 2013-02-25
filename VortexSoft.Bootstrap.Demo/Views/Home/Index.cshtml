@@ -1,0 +1,291 @@
+@{
+    ViewBag.Title = "Home Page";
+
+    //This is used for code blocks demo (<pre> tag)
+    string code =
+@"public override void Dispose()
+        {
+            base.Dispose();
+        }";
+}
+
+<div class="span12">
+    @using (var subNav = Html.Bootstrap().Begin(new SubNavBar()))
+    {
+        subNav.Item("Modal", "#demoModal");
+        subNav.Item("Tabs", "#demoTabs");
+        subNav.Item("Accordion", "#demoAccordion");
+        subNav.Item("Other", "#demoOther");
+        subNav.Item("Toolbar", "#demoToolbar");
+        subNav.Item("Thumbnails", "#demoThumbs");
+        subNav.Item("Carousel", "#demoCarousel");
+        subNav.Item("Code Blocks", "#demoCodeBlocks");
+        subNav.Item("Forms", Url.Action("DemoForm", "Home"));
+
+        subNav.DropDownItem("DropDown", new List<BootstrapListItem>
+        {
+            new BootstrapListItem { Text = "Something", Url = "#something" },
+            new BootstrapListItem { Text = "Something Else", Url = "#something-else" },
+            new BootstrapListItem { Text = "Yet Something More", Url = "#yet-something-more" }
+        });
+    }
+</div>
+<div class="clearfix"></div>
+
+<div class="span10">
+    @using (var hero = Html.Bootstrap().Begin(new HeroUnit(
+        "Hello, world",
+        "This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.")))
+    {
+        <a class="btn btn-primary btn-large">
+            Learn more
+        </a>
+    }
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<div class="span11" id="demoModal">
+    <h3>MODAL (DIALOG) DEMO</h3><br />
+
+    <a class="btn" data-toggle="modal" href="#myModal" >Normal Modal</a>
+
+    @Html.Bootstrap().ActionButton("Modal Wizard", BootstrapNamedColor.Primary, "TestPage", "Home")
+    <br />
+
+    @using (var modal = Html.Bootstrap().Begin(new Modal(new { id = "myModal" })))
+    {
+        using (var header = modal.BeginHeader())
+        {
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Modal header</h3>
+        }
+        using (var body = modal.BeginBody())
+        {
+            <p>One fine body…</p>
+        }
+        using (var footer = modal.BeginFooter())
+        {
+            @Html.Bootstrap().Button("Close", BootstrapNamedColor.Default, null, new { data_dismiss = "modal" })
+            @Html.Bootstrap().Button("Save Changes", BootstrapNamedColor.Primary, null)
+        }
+    }
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<div class="span11" id="demoTabs">
+    <h3>TABS DEMO</h3><br />
+    <h4>Normal Tabs (Top):</h4><br />
+    @using (var tabs = Html.Bootstrap().Begin(new Tabs()))
+    {
+        tabs.Tab("Tab One", "tab1");
+        tabs.Tab("Tab Two", "tab2");
+        tabs.Tab("Tab Three", "tab3");
+
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 1 content</p>
+        }
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 2 content</p>
+        }
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 3 content</p>
+        }
+    }
+    <div class="clearfix"></div>
+
+    <h4>Left Tabs:</h4><br />
+    @using (var tabs = Html.Bootstrap().Begin(new Tabs(TabPosition.Left)))
+    {
+        tabs.Tab("Tab One", "tabLeft1");
+        tabs.Tab("Tab Two", "tabLeft2");
+        tabs.Tab("Tab Three", "tabLeft3");
+
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 1 content</p>
+        }
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 2 content</p>
+        }
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 3 content</p>
+        }
+    }
+    <div class="clearfix"></div>
+
+    <h4>Right Tabs:</h4><br />
+    @using (var tabs = Html.Bootstrap().Begin(new Tabs(TabPosition.Right, new { @class = "span4" })))
+    {
+        tabs.Tab("Tab One", "tabRight1");
+        tabs.Tab("Tab Two", "tabRight2");
+        tabs.Tab("Tab Three", "tabRight3");
+
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 1 content</p>
+        }
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 2 content</p>
+        }
+        using (tabs.BeginPanel())
+        {
+            <p>This is tabs panel 3 content</p>
+        }
+    }
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<div class="span11" id="demoAccordion">
+    <h3>ACCORDION DEMO</h3>
+    <br />
+    @using (var accordion = Html.Bootstrap().Begin(new Accordion("accordion1")))
+    {
+        using (var panel = accordion.BeginPanel("Panel 1", "panel1"))
+        {
+            <p>This is accordion panel 1 content</p>
+        }
+        using (var panel = accordion.BeginPanel("Panel 2", "panel2"))
+        {
+            <p>This is accordion panel 2 content</p>
+        }
+    }
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<div class="span12" id="demoOther">
+    <h3>MISC</h3>
+
+    <div class="span3">
+        <h4>Quotes:</h4><br />
+        @Html.Bootstrap().Quote("A man should look for what is, and not for what he thinks should be.", "Albert Einstein")
+    </div>
+    <div class="span3">
+        <h4>Money Box:</h4><br />
+        @Html.Bootstrap().MoneyBox("price", "US$", 67, 0, false, new { @class = "span3" })
+    </div>
+
+    <div class="span3">
+        <h4>Inline Labels:</h4><br />
+        @Html.Bootstrap().InlineLabel("Default", BootstrapNamedColor.Default)
+        @Html.Bootstrap().InlineLabel("Important", BootstrapNamedColor.Important)
+        @Html.Bootstrap().InlineLabel("Info", BootstrapNamedColor.Info)
+        @Html.Bootstrap().InlineLabel("Inverse", BootstrapNamedColor.Inverse)
+        @Html.Bootstrap().InlineLabel("Success", BootstrapNamedColor.Success)
+        @Html.Bootstrap().InlineLabel("Warning", BootstrapNamedColor.Warning)
+        <div class="clearfix"></div>
+        <br />
+
+        <h4>Badges:</h4><br />
+        @Html.Bootstrap().Badge("Default", BootstrapNamedColor.Default)
+        @Html.Bootstrap().Badge("Important", BootstrapNamedColor.Important)
+        @Html.Bootstrap().Badge("Info", BootstrapNamedColor.Info)
+        @Html.Bootstrap().Badge("Inverse", BootstrapNamedColor.Inverse)
+        @Html.Bootstrap().Badge("Success", BootstrapNamedColor.Success)
+        @Html.Bootstrap().Badge("Warning", BootstrapNamedColor.Warning)
+    </div>
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<div class="span12" id="demoToolbar">
+    <h3>TOOLBAR DEMO</h3><br />
+    @using (var toolbar = Html.Bootstrap().Begin(new Toolbar()))
+    {
+        using (var group = toolbar.BeginButtonGroup())
+        {
+            group.Button("1", BootstrapNamedColor.Important);
+            group.Button("2", BootstrapNamedColor.Warning);
+            group.Button("3", BootstrapNamedColor.Success);
+        }
+        using (var group = toolbar.BeginButtonGroup())
+        {
+            group.Button("4", BootstrapNamedColor.Primary);
+            group.Button("5", BootstrapNamedColor.Info);
+            group.Button("6", BootstrapNamedColor.Inverse);
+            group.Button("7", BootstrapNamedColor.Default);
+        }
+    }
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<div class="span12" id="demoThumbs">
+    <h3>THUMBNAILS DEMO</h3>
+    
+    <div class="span3">
+        <h4>Normal Thumbnail:</h4><br />
+        @Html.Bootstrap().Thumbnail("http://placehold.it/260x180", "tv")
+    </div>
+
+    <div class="span3 offset2">
+        <h4>Special Thumbnail</h4><br />
+        @using (var thumb = Html.Bootstrap().Begin(new Thumbnail("http://placehold.it/260x180", "tv")))
+        {
+            using (var caption = thumb.BeginCaptionPanel())
+            {
+                <h5>Thumbnail label</h5>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p>
+                    <a class="btn btn-primary" href="#">Action</a>
+                    <a class="btn" href="#">Action</a>
+                </p>
+            }
+        }
+    </div>
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<div class="span5" id="demoCarousel">
+    <h3>CAROUSEL DEMO</h3><br />
+    @using (var carousel = Html.Bootstrap().Begin(new Carousel("carousel1")))
+    {
+        carousel.Item("~/Images/Red.png", "Red");
+
+        using (var item = carousel.ItemWithCaption("~/Images/Green.png", "Green"))
+        {
+            <h4>This is Green</h4>
+            <p>Green is a nice color</p>
+        }
+
+        carousel.Item("~/Images/Blue.png", "Blue");
+    }
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<div class="span5" id="demoCodeBlocks">
+    <h3>CODE BLOCKS DEMO</h3><br />
+    <h4>Normal: </h4>
+    @Html.Bootstrap().CodeBlock(code, false, false)
+    <br />
+
+    <h4>Prettify: </h4>
+    @Html.Bootstrap().CodeBlock(code, true, false)
+    <br />
+
+    <h4>Prettify & Line Numbers: </h4>
+    @Html.Bootstrap().CodeBlock(code)
+    <br />
+</div>
+<div class="clearfix"></div>
+<hr />
+
+<script type="text/javascript">
+    !function ($) {
+        $(function () {
+            window.prettyPrint && prettyPrint()
+        })
+    } (window.jQuery)
+</script>

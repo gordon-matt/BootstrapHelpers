@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Test Page";
+}
+
+<h2>Test Page</h2>
+
+<div class="span11" id="demoModal">
+    <h3>WIZARD DEMO</h3><br />
+
+    <a class="btn" data-toggle="modal" href="#myModal" >Launch Modal</a>
+
+    @using (var modal = Html.Bootstrap().Begin(new Modal(new { id = "myModal" })))
+    {
+        using (var header = modal.BeginHeader())
+        {
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Wizard Test</h3>
+        }
+        using (var body = modal.BeginBody())
+        {
+            using (var tabs = Html.Bootstrap().Begin(new Tabs(TabPosition.Left, new { @class = "span8" })))
+            {
+                tabs.Tab("Step 1", "tabStep1");
+                tabs.Tab("Step 2", "tabStep2");
+                tabs.Tab("Step 3", "tabStep3");
+
+                using (tabs.BeginPanel())
+                {
+                    <p>WIZARD PAGE 1</p>
+                    @Html.Bootstrap().Button("Next", BootstrapNamedColor.Default, "javascript:showTab('tabStep2')")
+                }
+                using (tabs.BeginPanel())
+                {
+                    <p>WIZARD PAGE 2</p>
+                    @Html.Bootstrap().Button("Previous", BootstrapNamedColor.Default, "javascript:showTab('tabStep1')")
+                    @Html.Bootstrap().Button("Next", BootstrapNamedColor.Default, "javascript:showTab('tabStep3')")
+                }
+                using (tabs.BeginPanel())
+                {
+                    <p>WIZARD PAGE 3</p>
+                    @Html.Bootstrap().Button("Previous", BootstrapNamedColor.Default, "javascript:showTab('tabStep2')")
+                }
+            }
+        }
+        using (var footer = modal.BeginFooter())
+        {
+            @Html.Bootstrap().Button("Close", BootstrapNamedColor.Default, null, new { data_dismiss = "modal" })
+            @Html.Bootstrap().Button("Save Changes", BootstrapNamedColor.Primary, null)
+        }
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //override default modal width.. make 80%
+        $('#myModal').modal({
+            backdrop: true,
+            keyboard: true,
+            show: false
+        }).css({
+            'width': function () {
+                return ($(document).width() * .8) + 'px';
+            },
+            'margin-left': function () {
+                return -($(this).width() / 2);
+            }
+        });
+    });
+
+    function showTab(tabPage) {
+        $('a[href="#' + tabPage + '"]').click();
+    }
+</script>

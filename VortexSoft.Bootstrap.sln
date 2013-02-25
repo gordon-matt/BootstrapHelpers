@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VortexSoft.Bootstrap.Demo", "VortexSoft.Bootstrap.Demo\VortexSoft.Bootstrap.Demo.csproj", "{16970A6F-42F4-410F-AC05-5D6B60A7C903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VortexSoft.Bootstrap", "VortexSoft.Bootstrap\VortexSoft.Bootstrap.csproj", "{371BABEC-5A00-464D-8EBB-09C32CA4C326}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16970A6F-42F4-410F-AC05-5D6B60A7C903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16970A6F-42F4-410F-AC05-5D6B60A7C903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16970A6F-42F4-410F-AC05-5D6B60A7C903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16970A6F-42F4-410F-AC05-5D6B60A7C903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{371BABEC-5A00-464D-8EBB-09C32CA4C326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371BABEC-5A00-464D-8EBB-09C32CA4C326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371BABEC-5A00-464D-8EBB-09C32CA4C326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371BABEC-5A00-464D-8EBB-09C32CA4C326}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

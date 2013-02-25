@@ -1,0 +1,66 @@
+﻿@using VortexSoft.Bootstrap.Demo.Models
+@using VortexSoft.Bootstrap.Demo.Web.UI
+@using JQueryUIHelpers
+
+@model DemoFormModel
+
+@{
+    ViewBag.Title = "DemoForm";
+}
+
+<link type="text/css" rel="stylesheet" href="~/Styles/validationEngine.jquery.css" />
+<script type="text/javascript" src="~/Scripts/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validationEngine-en.js"></script>
+
+<h2>Demo Form (Manual)</h2>
+
+@using (var form = Html.Bootstrap().BeginForm(new { @class = "well", id = "myForm" }))
+{
+    //Auto control groups
+    form.TextBoxControlGroupFor(m => m.FirstName);
+    form.TextBoxControlGroupFor(m => m.LastName);
+    form.PasswordControlGroupFor(m => m.Password);
+    form.CheckBoxControlGroupFor(m => m.Like);
+
+    //Manual (custom) control group
+    using (var group = form.BeginControlGroup())
+    {
+        group.ControlLabelFor(m => m.DateOfBirth);
+        using (var controls = group.BeginControlsSection())
+        {
+            @Html.JQueryUI().DatepickerFor(m => m.DateOfBirth).ChangeYear(true).ChangeMonth(true)
+        }
+    }
+}
+
+<div class="clearfix"></div>
+<br />
+<br />
+
+<h2>Demo Dynamic Form (Auto):</h2>
+
+@using (var form = Html.Bootstrap().BeginForm(new { @class = "well", id = "autoForm" }))
+{
+    @*@Html.Bootstrap().DynamicForm(); <-- Default*@
+    @Html.Bootstrap().DynamicForm(new CustomDynamicFormBuilder<DemoFormModel>(Html)) @*<-- Custom*@
+}
+
+<div class="clearfix"></div>
+<br />
+<br />
+
+<h2>Inline Form:</h2>
+@using (var form = Html.Bootstrap().BeginForm(BootstrapFormType.Inline, new { @class = "well" }))
+{
+    @Html.TextBoxFor(m => m.FirstName, new { @class = "input-small" }); <text>&nbsp;</text>
+    @Html.TextBoxFor(m => m.LastName, new { @class = "input-small" }); <text>&nbsp;</text>
+    @Html.PasswordFor(m => m.Password, new { @class = "input-small" }); <text>&nbsp;</text>
+    form.LabelledCheckBoxFor(m => m.Like);
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#autoForm").validationEngine({ validateOnSubmitOnly: false });
+    });
+</script>

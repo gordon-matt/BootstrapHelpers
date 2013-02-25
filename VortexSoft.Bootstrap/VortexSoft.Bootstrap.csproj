@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{371BABEC-5A00-464D-8EBB-09C32CA4C326}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VortexSoft.Bootstrap</RootNamespace>
+    <AssemblyName>VortexSoft.Bootstrap</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accordion\Accordion.cs" />
+    <Compile Include="Accordion\AccordionBuilder.cs" />
+    <Compile Include="Accordion\AccordionPanel.cs" />
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="BootstrapNamedColor.cs" />
+    <Compile Include="BuilderBase.cs" />
+    <Compile Include="Carousel\Carousel.cs" />
+    <Compile Include="Carousel\CarouselBuilder.cs" />
+    <Compile Include="Carousel\CarouselCaptionPanel.cs" />
+    <Compile Include="Collections\Generic\PairCollection.cs" />
+    <Compile Include="Collections\Generic\PowerCollections\Pair.cs" />
+    <Compile Include="Collections\Generic\PowerCollections\Strings.cs" />
+    <Compile Include="GlyphIcons.cs" />
+    <Compile Include="DynamicForm\BootstrapDynamicFormBuilder.cs" />
+    <Compile Include="Form\ControlsSection.cs" />
+    <Compile Include="Form\ControlGroup.cs" />
+    <Compile Include="Form\BootstrapForm.cs" />
+    <Compile Include="Form\BootstrapFormBuilder.cs" />
+    <Compile Include="Form\BootstrapFormType.cs" />
+    <Compile Include="HeroUnit\HeroUnit.cs" />
+    <Compile Include="HeroUnit\HeroUnitBuilder.cs" />
+    <Compile Include="BootstrapListItem.cs" />
+    <Compile Include="DynamicForm\IDynamicFormBuilder.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Tabs\TabPosition.cs" />
+    <Compile Include="Thumbnails\Thumbnail.cs" />
+    <Compile Include="Thumbnails\ThumbnailBuilder.cs" />
+    <Compile Include="Thumbnails\ThumbnailCaptionPanel.cs" />
+    <Compile Include="Toolbar\ButtonGroup.cs" />
+    <Compile Include="HtmlAttributesUtility.cs" />
+    <Compile Include="HtmlElement.cs" />
+    <Compile Include="HtmlHelperExtensions.cs" />
+    <Compile Include="Modal\Modal.cs" />
+    <Compile Include="Modal\ModalBuilder.cs" />
+    <Compile Include="Modal\ModalSectionPanel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Navigation\SubNavBar.cs" />
+    <Compile Include="Navigation\SubNavBarBuilder.cs" />
+    <Compile Include="Tabs\Tabs.cs" />
+    <Compile Include="Tabs\TabsBuilder.cs" />
+    <Compile Include="Tabs\TabsPanel.cs" />
+    <Compile Include="Toolbar\Toolbar.cs" />
+    <Compile Include="Toolbar\ToolbarBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ToDo.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

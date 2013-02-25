@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>@ViewBag.Title - Bootstrap Demo</title>
+        <meta charset="utf-8" />
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+        <link type="text/css" rel="stylesheet" href="~/Styles/Bootstrap/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="~/Styles/Bootstrap/css/bootstrap-responsive.min.css" />
+        <link type="text/css" rel="stylesheet" href="~/Styles/JQueryUI/jquery-ui.min.css" />
+        <link type="text/css" rel="stylesheet" href="~/Styles/prettify.css" />
+
+        <script type="text/javascript" src="~/Scripts/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-ui.unobtrusive-1.0.1.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/prettify.js"></script>
+        
+        <style type="text/css">
+            body {
+                padding-bottom: 40px;
+                padding-top: 60px;
+            }
+            .sidebar-nav {
+                padding: 9px 0;
+            }
+        </style>
+
+        @RenderSection("HeadContent", false)
+    </head>
+    <body>
+        <header>
+            @Html.Partial("_LayoutTopMenu")
+        </header>
+        <div id="body" class="container-fluid">
+            <div class="row-fluid">
+                @RenderBody()
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+
+    @RenderSection("FooterContent", false)
+</html>
